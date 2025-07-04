@@ -6,7 +6,6 @@ Last updated : 19 Jun 2025  Requires R 4.1 or newer.
 0) Folder map
 goldlayer_gwas_pipeline.R – main script
 README.txt – this file
-data\ – create this folder and place the external
 data files listed in Section 2
 results\ – created automatically; holds CSVs and plot
 
