@@ -38,6 +38,15 @@ https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE105760
 3. Signal track (−log10 p) (.bigWig)
 • Decompress the peak files if they are gzipped and place all three
 files in the data folder.
+C – Human genome package (BSgenome)
+• By default, the script installs the package BSgenome.Hsapiens.UCSC.hg38
+  automatically from Bioconductor using BiocManager.
+• If automatic installation fails (for example, due to firewall or
+  network restrictions), you can manually download the source tarball:
+  https://bioconductor.org/packages/release/data/annotation/src/contrib/BSgenome.Hsapiens.UCSC.hg38_1.4.5.tar.gz
+• After downloading, place the .tar.gz file inside the data folder.
+  Then edit the variable local_hg38 in the script to point to that
+  local file.
 ======================================================================
 3) What the script does
 Checks and installs every R / Bioconductor package needed.
