@@ -27,7 +27,7 @@
 # 1. Installation & Library Setup (All Systems)
 # ============================================
 
-local_hg38 <- "D:/manhaj/R/rpackages/BSgenome.Hsapiens.UCSC.hg38_1.4.5.tar.gz"  # !! Edit file paths as needed for your system !!
+local_hg38 <- "C://////R/rpackages/BSgenome.Hsapiens.UCSC.hg38_1.4.5.tar.gz"  # !! Edit file paths as needed for your system !!
 
 required_pkgs <- c(
   "gwasrapidd", "dplyr", "tidyr", "purrr", "BiocManager",
@@ -186,7 +186,7 @@ if (length(cCRE_query)) {
   }
   cCREs <- rtracklayer::import(bb_file)
 }
-eqtl_file <- "D:/manhaj/R/rpackages/GTEx_Analysis_v8_eQTL/Prostate.signifpairs.txt" # !! Edit file paths as needed for your system !!
+eqtl_file <- "C:////////R/rpackages/GTEx_Analysis_v8_eQTL/Prostate.signifpairs.txt" # !! Edit file paths as needed for your system !!
 if (!file.exists(eqtl_file)) {
   stop("❌ File not found: ", eqtl_file, "\nPlace the correct file in this location and retry.")
 }
@@ -246,7 +246,7 @@ guides_gr <- GRanges(
   seqnames = goldlayer_305$seqnames,
   ranges   = IRanges(start = goldlayer_305$start, end = goldlayer_305$end)
 )
-h3_bed_path <- "D:/manhaj/GWAS/proposal 2025 may/sources/GSE105760_ENCFF341RJV_peaks_GRCh38.bed" # !! Edit file paths as needed for your system !!
+h3_bed_path <- "C://////////////GSE105760_ENCFF341RJV_peaks_GRCh38.bed" # !! Edit file paths as needed for your system !!
 h3_df <- read_tsv(
   h3_bed_path,
   col_names = c("chr", "start", "end", "name", "score", "strand",
@@ -258,7 +258,7 @@ h3_gr <- GRanges(
   ranges   = IRanges(start = h3_df$start + 1, end = h3_df$end)
 )
 goldlayer_305$H3K27ac_peak <- overlapsAny(guides_gr, h3_gr)
-h3_rep_bed <- "D:/manhaj/GWAS/proposal 2025 may/sources/GSE105760_ENCFF776KYJ_replicated_peaks_GRCh38.bed.gz" # !! Edit file paths as needed for your system !!
+h3_rep_bed <- "C://///////////////GSE105760_ENCFF776KYJ_replicated_peaks_GRCh38.bed.gz" # !! Edit file paths as needed for your system !!
 h3_rep_df <- read_tsv(
   h3_rep_bed, comment = "#",
   col_names = c("chr", "start", "end", "name", "score", "strand",
@@ -273,7 +273,7 @@ goldlayer_305$H3K27ac_peak_rep <- overlapsAny(guides_gr, h3_rep_gr)
 goldlayer_305$Epigenomic_4layer <- goldlayer_305$H3K27ac_peak_rep
 n_hit <- sum(goldlayer_305$Epigenomic_4layer)
 cat("GoldLayer guides in high-confidence IDR peaks =", n_hit, "of", nrow(goldlayer_305), "\n")
-pval_bw <- "D:/manhaj/GWAS/proposal 2025 may/sources/GSE105760_ENCFF808YKT_signal_p-value_GRCh38.bigWig" # !! Edit file paths as needed for your system !!
+pval_bw <- "C:///////////////////GSE105760_ENCFF808YKT_signal_p-value_GRCh38.bigWig" # !! Edit file paths as needed for your system !!
 p_vec <- import(pval_bw, which = guides_gr, as = "NumericList")
 goldlayer_305$negLog10P <- vapply(p_vec, function(x)
   if (length(x)) max(x) else NA_real_, 0)
